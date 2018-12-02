@@ -1,0 +1,4 @@
+scripts/__pycache__
+
+data/best_genes.json
+data/gene_evolution.png
