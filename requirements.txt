@@ -2,3 +2,6 @@ argparse
 pygame
 matplotlib
 numpy
+
+flake8
+pytest
