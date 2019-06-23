@@ -62,7 +62,7 @@ class Game():
             self._should_reset = True
         elif self._player_1_can_click:
             position = self._set_clicked_position(coordinate)
-            if self._player_2_filled[position[0]][position[1]] == 1:
+            if self._player_1_filled[position[0]][position[1]] == 1 or self._player_2_filled[position[0]][position[1]] == 1:
                 return
             self._player_1_filled[position[0]][position[1]] = 1
             self._clicked_position = position
@@ -70,7 +70,7 @@ class Game():
             self._player_2_can_click = True
         elif self._game_ai is None and self._player_2_can_click:
             position = self._set_clicked_position(coordinate)
-            if self._player_1_filled[position[0]][position[1]] == 1:
+            if self._player_1_filled[position[0]][position[1]] == 1 or self._player_2_filled[position[0]][position[1]] == 1:
                 return
             self._player_2_filled[position[0]][position[1]] = 1
             self._clicked_position = position
@@ -185,7 +185,7 @@ class Game():
             self._player_2_can_click = False
             self._clicked_position = None
         elif self._game_ai is not None and self._player_2_can_click:
-            position = self._game_ai.choose_position(self._player_1_filled, self._player_2_filled)
+            position = self._game_ai.choose_position(self._player_2_filled, self._player_1_filled)
             if position is not None:
                 self._player_2_filled[position[0]][position[1]] = 1
                 self._clicked_position = position
